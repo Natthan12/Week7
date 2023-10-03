@@ -4,19 +4,24 @@ import react from 'react';
 //import LayOut2 from './layout2';
 //import Question from './Question';
 //import TouchableDemo from './touchable-demo2';
+//import {NavigationContainer} from '@react-navigation/native';
+//import {createStackNavigator} from '@react-navigation/stack';
+//import Home from './home'
+//import About from './about'
+//import Contact from './contact';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import Home from './home'
-import About from './about'
-import Contact from './contact';
+import List from './List';
+import Subject from './Subject';
 
 export default function App() {
-  //return (
-      //<ColumnItem/>//
+    const Stack = createStackNavigator()
+  return (
+        //<ColumnItem/>//
       //<RowItem/>//
      //<Question/>
      //<TouchableDemo/>
-     const Stack = createStackNavigator()
+     /*const Stack = createStackNavigator()
      return (
        <NavigationContainer>
           <Stack.Navigator initialRoutName='Home'>
@@ -32,7 +37,19 @@ export default function App() {
 
           </Stack.Navigator>
        </NavigationContainer>
-     )
+     )*/
+    <NavigationContainer>
+        <Stack.Navigator initialRouteName='List'>
+          <Stack.Screen name="List" component={List}
+          options={{headerTitle: 'หน้าแรก', headerBackTitle:''}}
+          />
+          <Stack.Screen name="Subject" component={Subject}
+          options={{headerTitle: 'รายละเอียดสินค้า', headerBackTitle:''}}
+          />
+
+        </Stack.Navigator>
+      </NavigationContainer>
+  
       
-  //);
+  );
 }
